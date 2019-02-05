@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+/*
 class App extends Component {
   render() {
     return (
@@ -24,5 +25,34 @@ class App extends Component {
     );
   }
 }
+*/
 
-export default App;
+
+class ExampleComponent extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      articles: [
+          { title: 'React Redux Tutorial for Beginners', id: 1 },
+          { title: 'Redux e React: cosè Redux e come usarlo con React', id: 2 }
+      ]
+    };
+  }
+
+  render() {
+    const { articles } = this.state;
+    return(
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <ul>{articles.map( el => <li key={el.id}>{el.title}</li> )}</ul>
+        </header>
+      </div>
+    );
+  }
+}
+
+export default ExampleComponent;
+
+// export default App;
